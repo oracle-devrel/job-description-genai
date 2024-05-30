@@ -2,27 +2,56 @@
 
 [![License: UPL](https://img.shields.io/badge/license-UPL-green)](https://img.shields.io/badge/license-UPL-green)<!--[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=oracle-devrel_competency-development-genai)](https://sonarcloud.io/dashboard?id=oracle-devrel_competency-development-genai)-->
 
-## THIS IS A NEW, BLANK REPO THAT IS NOT READY FOR USE YET.  PLEASE CHECK BACK SOON!
+### Introduction
+ 
+As a recruiter or hiring manager, you can use AI assistance to create the first draft of a Job Description based on Job title, company, and division. The Gen AI can assist creating a draft job description that includes summary, description, responsibilities, and qualifications. This is a demo application showcasing how you can use OCI Generative AI service to quickly create a working application.
 
-## Introduction
+Prerequisites and setup
 
-MISSING
+1. Oracle Cloud account—sign-up
+2. Create oci config
+ 
+### Getting started
+Application uses OCI Generative AI Service to create Job Description based on user inputs. The OCI client ```client.py``` creates the client to connet to OCI Gen AI service. 
 
-## Getting Started
+To install the demo app, follow the steps below.
+1. Update the config.toml file with location of your oci config file.
 
-MISSING
+```toml
+[user]
+userconfig = <you config file location>
+profile = "DEFAULT"
+compartment_id = <Your compartment>
+```
+2. Create a virtual environment
 
-### Prerequisites
+```python
+%  python3 -m venv .demo
+```
+3. Activate the virtual environment
+ ```python
+%  source .demo/bin/activate
+```
+4. Install requirements
+ ```python
+(.demo) %  pip install -r requirements.txt
+```
+5. Run the app
+```pyhon
+(.demo) %  streamlit run jobposting.py
+```
 
-MISSING
+This should bring up the application and following message will be displayed in the terminal. You can access the application in your browser.
+```
+  You can now view your Streamlit app in your browser.
 
-## Notes/Issues
+  Local URL: http://localhost:8501
+  Network URL: http://10.126.180.172:8501
+```
 
-MISSING
+![alt text](image.png)
 
-## URLs
-
-* Nothing at this time
+Feel free to experiment with prompt and examples. Enjoy!
 
 ## Contributing
 
