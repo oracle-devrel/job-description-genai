@@ -1,0 +1,16 @@
+[user]
+userconfig = "~/.oci/config"
+profile = "DEFAULT"
+compartment_id = "<YOUR_COMPARTMENT_ID>"
+
+[ocigenaiservice]
+endpoint = "https://inference.generativeai.us-chicago-1.oci.oraclecloud.com"
+
+[model]
+name = "cohere_v15_6"
+id = "ocid1.generativeaimodel.oc1.us-chicago-1.amaaaaaask7dceyafhwal37hxwylnpbcncidimbwteff4xha77n5xz4m7p6a"
+interface = "CohereLlmInferenceRequest"
+
+[model.params]
+max_tokens = 600
+temperature = 0.3
