@@ -16,6 +16,8 @@ The application has the following components:
 - Streamlit framework as the front-end, to allow users to interact with the LLM
 - Python environment to run the code, either locally or on OCI
 
+[You can watch the solution's video here.](https://youtu.be/_qW4NpW4bes)
+
 ## 0. Prerequisites and setup
 
 ### Prerequisites
