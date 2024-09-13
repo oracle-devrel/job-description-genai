@@ -1,57 +1,97 @@
-# competency-development-genai
+# Creating job descriptions using Generative AI
 
 [![License: UPL](https://img.shields.io/badge/license-UPL-green)](https://img.shields.io/badge/license-UPL-green)<!--[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=oracle-devrel_competency-development-genai)](https://sonarcloud.io/dashboard?id=oracle-devrel_competency-development-genai)-->
 
-### Introduction
- 
-As a recruiter or hiring manager, you can use AI assistance to create the first draft of a Job Description based on Job title, company, and division. The Gen AI can assist creating a draft job description that includes summary, description, responsibilities, and qualifications. This is a demo application showcasing how you can use OCI Generative AI service to quickly create a working application.
+## Introduction
 
-Prerequisites and setup
+As a recruiter or hiring manager, you can use AI assistance to create the first draft of a *job description* based on job title, company, and division.
 
-1. Oracle Cloud account—sign-up
-2. Create oci config
- 
-### Getting started
-Application uses OCI Generative AI Service to create Job Description based on user inputs. The OCI client ```client.py``` creates the client to connet to OCI Gen AI service. 
+The Generative AI component can assist creating a draft job description that includes a summary, description, responsibilities, and qualifications.
 
-To install the demo app, follow the steps below.
-1. Update the config.toml file with location of your oci config file.
+This is a demo solution showcasing how you can use OCI Generative AI service to quickly create a working application.
 
-```toml
-[user]
-userconfig = <you config file location>
-profile = "DEFAULT"
-compartment_id = <Your compartment>
-```
-2. Create a virtual environment
+The application has the following components:
 
-```python
-%  python3 -m venv .demo
-```
-3. Activate the virtual environment
- ```python
-%  source .demo/bin/activate
-```
-4. Install requirements
- ```python
-(.demo) %  pip install -r requirements.txt
-```
-5. Run the app
-```pyhon
-(.demo) %  streamlit run jobposting.py
-```
+- OCI Generative AI Service to run Large Language Model (LLM) generations
+- Streamlit framework as the front-end, to allow users to interact with the LLM
+- Python environment to run the code, either locally or on OCI
 
-This should bring up the application and following message will be displayed in the terminal. You can access the application in your browser.
-```
-  You can now view your Streamlit app in your browser.
+[You can watch the solution's video here.](https://youtu.be/_qW4NpW4bes)
+
+## 0. Prerequisites and setup
+
+### Prerequisites
+
+- An Oracle Cloud Infrastructure (OCI) Account
+- [OCI SDK](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdkconfig.htm)
+
+Follow these links below to generate a config file and a key pair in your ~/.oci directory:
+
+[SDK Config](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdkconfig.htm)
+[API Signing Key](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/apisigningkey.htm)
+[SDK CLI Installation](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm#configfile)
+
+After completion, you should have following 2 things in your `~/.oci` directory:
+
+- A config file(where key file point to private key:key_file=~/.oci/oci_api_key.pem)
+- A key pair named `oci_api_key.pem` and `oci_api_key_public.pem`
+- Now, make sure you change the reference of key file in config file (where key file point to private key:key_file=/YOUR_DIR_TO_KEY_FILE/oci_api_key.pem)
+
+## 1. Getting started
+
+Application uses OCI Generative AI Service to create Job Description based on user inputs. The OCI client ```client.py``` creates the client to connect to the OCI Generative AI service.
+
+To install the demo application, follow the steps below:
+
+1. Update the `config.toml` file with location of your oci config file:
+
+    ```toml
+    [user]
+    userconfig = <you OCI config file location>
+    profile = "DEFAULT"
+    compartment_id = <Your compartment OCID>
+    ```
+
+    > By default, the installation path is `~/.oci/config`.
+
+2. If you don't have a virtual environment, create a new one:
+
+    ```bash
+    python3 -m venv .demo
+    ```
+
+3. Activate the virtual environment you just created:
+
+    ```bash
+    source .demo/bin/activate
+    ```
+
+4. Install Python requirements into the environment:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+5. Run the app:
+
+  ```bash
+  (.demo) %  streamlit run jobposting.py
+  ```
+
+This should spin up the application and the following message will be displayed in the terminal:
+
+```bash
+  > You can now view your Streamlit app in your browser.
 
   Local URL: http://localhost:8501
   Network URL: http://10.126.180.172:8501
 ```
 
-![alt text](image.png)
+> You can access the application in your browser, using either localhost for deploying locally or hosting it in an OCI Compute Instance and exposing its public IP address to the Internet.
 
-Feel free to experiment with prompt and examples. Enjoy!
+![streamlit interface](img/image.png)
+
+Feel free to experiment with the prompt and some examples. Enjoy!
 
 ## Contributing
 
